@@ -15,6 +15,14 @@ public class ImageAsset : Asset
     {
         ImageUri = new Uri(imageUrl);
     }
-    
+
+    public override bool Readable => false;
+
+    public override bool Viewable => true;
+
+    public override string GetContent()
+    {
+        return ImageUri != null ? ImageUri.AbsoluteUri : string.Empty;
+    }
 }
 
