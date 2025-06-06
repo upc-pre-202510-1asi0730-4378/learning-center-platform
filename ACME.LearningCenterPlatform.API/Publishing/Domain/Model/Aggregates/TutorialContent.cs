@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+using ACME.LearningCenterPlatform.API.Publishing.Domain.Model.Commands;
 using ACME.LearningCenterPlatform.API.Publishing.Domain.Model.Entities;
 using ACME.LearningCenterPlatform.API.Publishing.Domain.Model.ValueObjects;
 
@@ -104,5 +106,23 @@ public partial class Tutorial : IPublishable
                 new ContentItem(asset.Type.ToString(), 
                     asset.GetContent() as string ?? string.Empty)));
         return content;
+    }
+
+    public void Handle(AddVideoAssetToTutorialCommand command)
+    {
+        if(command.TutorialId == Id)
+            AddVideo(command.VideoUrl);
+    }
+
+    public void Handle(AddImageAssetToTutorialCommand command)
+    {
+        if(command.TutorialId == Id)
+            AddImage(command.ImageUrl);
+    }
+    
+    public void Handle(AddReadableContentAssetToTutorialCommand command)
+    {
+        if(command.TutorialId == Id)
+            AddReadableContent(command.Content);
     }
 }
