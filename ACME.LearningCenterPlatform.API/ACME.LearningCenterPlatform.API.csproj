@@ -30,8 +30,4 @@
         <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.12.0"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Publishing\Domain\Model\Queries\" />
-    </ItemGroup>
-
 </Project>
