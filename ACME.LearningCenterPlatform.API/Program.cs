@@ -1,3 +1,8 @@
+using ACME.LearningCenterPlatform.API.Publishing.Application.Internal.CommandServices;
+using ACME.LearningCenterPlatform.API.Publishing.Application.Internal.QueryServices;
+using ACME.LearningCenterPlatform.API.Publishing.Domain.Repositories;
+using ACME.LearningCenterPlatform.API.Publishing.Domain.Services;
+using ACME.LearningCenterPlatform.API.Publishing.Infrastructure.Persistence.EFC.Repositories;
 using ACME.LearningCenterPlatform.API.Shared.Domain.Repositories;
 using ACME.LearningCenterPlatform.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ACME.LearningCenterPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -66,6 +71,14 @@ builder.Services.AddCors(options =>
 
 // Shared Bounded Context
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Publishing Bounded Context
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
+builder.Services.AddScoped<ICategoryCommandService, CategoryCommandService>();
+builder.Services.AddScoped<ITutorialCommandService, TutorialCommandService>();
+builder.Services.AddScoped<ICategoryQueryService, CategoryQueryService>();
+builder.Services.AddScoped<ITutorialQueryService, TutorialQueryService>();
 
 var app = builder.Build();
 
