@@ -30,4 +30,8 @@
         <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.12.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="IAM\" />
+    </ItemGroup>
+
 </Project>
