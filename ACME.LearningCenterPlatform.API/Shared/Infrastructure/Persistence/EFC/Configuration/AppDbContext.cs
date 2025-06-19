@@ -1,3 +1,4 @@
+using ACME.LearningCenterPlatform.API.Profiles.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using ACME.LearningCenterPlatform.API.Publishing.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using ACME.LearningCenterPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
@@ -22,7 +23,10 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         base.OnModelCreating(builder);
         
         // Apply Publishing context configuration
-        builder.ApplyPublishingConfiguration(); 
+        builder.ApplyPublishingConfiguration();
+        
+        // Apply Profiles context configuration
+        builder.ApplyProfilesConfiguration();
         
         builder.UseSnakeCaseNamingConvention();
     }
