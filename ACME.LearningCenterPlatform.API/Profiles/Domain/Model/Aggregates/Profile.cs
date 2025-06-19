@@ -11,7 +11,7 @@ public partial class Profile
     public StreetAddress Address { get; private set; }
 
     public string FullName => Name.FullName;
-    public string EMailAddress => Email.Address;
+    public string EmailAddress => Email.Address;
     public string StreetAddress => Address.FullAddress;
 
     public Profile()
